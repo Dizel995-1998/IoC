@@ -1,5 +1,5 @@
 {
-    "name": "creative/ioc",
+    "name": "dizel_developer/ioc",
     "type": "library",
     "authors": [
         {
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Creative\\IoC\\": "src/"
+            "DizelDeveloper\\IoC\\": "src/"
         }
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Creative\IoC\Container;
+namespace DizelDeveloper\IoC\Container;
 
-use Creative\IoC\ServiceResolver;
+use DizelDeveloper\IoC\ServiceResolver;
 use InvalidArgumentException;
 use RuntimeException;
 

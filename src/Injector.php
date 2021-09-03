@@ -1,8 +1,8 @@
 <?php
 
-namespace Creative\IoC;
+namespace DizelDeveloper\IoC;
 
-use Creative\IoC\Container\ContainerInterface;
+use DizelDeveloper\IoC\Container\ContainerInterface;
 use InvalidArgumentException;
 use ReflectionClass;
 use ReflectionException;
