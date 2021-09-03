@@ -139,15 +139,20 @@ class Injector
 
         if ($constructor = $reflection->getConstructor()) {
             foreach ($constructor->getParameters() as $dependency) {
+
+                if (!$service = $this->container->get($className)) {
+                    throw new RuntimeException(sprintf('Container does not have %s service', $className));
+                }
+
                 /** Если у зависимости есть нет переопредённого значения, взять дефолтное */
-                if (!$this->container->get($className)->getArgs()[$dependency->getName()] && $dependency->isDefaultValueAvailable()) {
+                if (!$service->getArgs()[$dependency->getName()] && $dependency->isDefaultValueAvailable()) {
                     $arDependencies[] = $dependency->getDefaultValue();
                     continue;
                 }
 
                 /** Если зависимость не класс, а примитивный тип */
                 if (!$dependency->getClass()) {
-                    if (!$primitiveTypeValue = $this->container->get($className)->getArgs()[$dependency->getName()]) {
+                    if (!$primitiveTypeValue = $service->getArgs()[$dependency->getName()]) {
                         throw new
                         RuntimeException(
                             sprintf('Can\'t resolve primitive dependencies, arg "%s" have no value "%s" class',
