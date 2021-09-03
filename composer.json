@@ -1,4 +1,5 @@
 {
+    "description": "HEllo world",
     "name": "dizel_developer/ioc",
     "type": "library",
     "authors": [
